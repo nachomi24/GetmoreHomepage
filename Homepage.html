@@ -38,4 +38,110 @@
     </header>
 
 </body>
+
+<section class="tennis-section">
+    <div class="tennis-container">
+        <span class="tennis-title">TENNIS</span>
+        <h2>Raquetas. Accesorios. Pelotas.</h2>
+        <p>Conoce nuestras raquetas y aprende a jugar Tennis como un profesional.</p>
+        <a href="#" class="boton historia-boton">HISTORIA →</a>
+    </div>
+</section>
+
+<section class="raquetas-section">
+    <div class="raquetas-container">
+        <div class="raquetas-img">
+            <span class="carousel-text">Nuestras <span class="text-style-2">Raquetas</span></span>
+            <img src="ballcourt.png" alt="Pelota de tenis">
+            <p class="carousel-description">Conoce nuestras raquetas y aprende a jugar Tennis como un profesional.</p>
+            <div class="carousel-controls">
+                <div class="dots-container">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+                <div class="flechas-container">
+                    <img src="prevbtn.png" class="prev" id="prevButton">
+                    <img src="btnprev.png" class="next" id="nextButton">
+                </div>
+            </div>
+        </div>
+        <div class="raquetas-carousel">
+            <div class="raqueta-item">
+                <span class="raqueta-num">1</span>
+                <img src="raqueta.png" alt="Raqueta 1">
+            </div>
+            <div class="raqueta-item">
+                <span class="raqueta-num">2</span>
+                <img src="raqueta.png" alt="Raqueta 2">
+            </div>
+            <div class="raqueta-item">
+                <span class="raqueta-num">3</span>
+                <img src="raqueta.png" alt="Raqueta 3">
+            </div>
+            <div class="raqueta-item">
+                <span class="raqueta-num">4</span>
+                <img src="raqueta.png" alt="Raqueta 4">
+            </div>
+            <div class="raqueta-item">
+                <span class="raqueta-num">5</span>
+                <img src="raqueta.png" alt="Raqueta 5">
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+const prevBtn = document.querySelector('#prevButton');
+const nextBtn = document.querySelector('#nextButton');
+const raquetasCarousel = document.querySelector('.raquetas-carousel');
+const raquetasItems = document.querySelectorAll('.raqueta-item');
+let currentIndex = 0;
+
+function showRaquetas(index) {
+    const itemWidth = raquetasItems[0].offsetWidth + parseInt(getComputedStyle(raquetasCarousel).gap); // Incluye el gap dinámicamente
+    const containerWidth = document.querySelector('.raquetas-container').offsetWidth - 500; // Resta el ancho de .raquetas-img
+    const itemsVisible = Math.floor(containerWidth / itemWidth);
+    const maxIndex = raquetasItems.length - itemsVisible; // Ajusta para que la última tarjeta sea visible
+
+    currentIndex = Math.min(Math.max(index, 0), maxIndex); // Asegura que no se pase
+
+    const translateValue = -itemWidth * currentIndex;
+    raquetasCarousel.style.transform = `translateX(${translateValue}px)`;
+}
+
+nextBtn.addEventListener('click', () => {
+    showRaquetas(currentIndex + 1);
+});
+
+prevBtn.addEventListener('click', () => {
+    showRaquetas(currentIndex - 1);
+});
+
+window.addEventListener('resize', () => {
+    showRaquetas(currentIndex); // Ajusta la posición cuando cambia el tamaño de la ventana
+});
+</script>
+
+<section class="imagen-section">
+    <img src="actionball.png" alt="Jugador de tenis en acción">
+</section>
+
+<footer class="footer-section">
+    <nav class="footer-menu">
+        <a href="#" class="active">Inicio</a>
+        <a href="#">Acerca de nosotros</a>
+        <a href="#">Historia</a>
+        <a href="#">Contacto</a>
+    </nav>
+    <div class="social-icons">
+        <img src="lnkdn.svg" alt="LinkedIn">
+        <img src="vnm.svg" alt="Venmo">
+        <img src="insta.svg" alt="Instagram">
+        <img src="twt.svg" alt="Twitter">
+        <img src="fb.svg" alt="Facebook">
+    </div>
+</footer>
+
 </html>
