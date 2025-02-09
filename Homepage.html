@@ -11,14 +11,14 @@
     <header>
             <div class="nav-container">
                 <div class="logo-container">
-                    <img src="tennisbaall.svg" alt="Logo de Tenis" class="logo">
+                    <img src="images/tennisbaall.svg" alt="Logo de Tenis" class="logo">
                     <div class="linea-divisora"></div>
                 </div>
         
                 <nav>
                     <ul class="menu">
                         <li><a href="#">Inicio</a></li>
-                        <li><a href="#">Acerca de Nosotros</a></li>
+                        <li><a href="#">Nosotros</a></li>
                         <li><a href="#">Historia</a></li>
                         <li><a href="#">Contacto</a></li>
                     </ul>
@@ -52,7 +52,7 @@
     <div class="raquetas-container">
         <div class="raquetas-img">
             <span class="carousel-text">Nuestras <span class="text-style-2">Raquetas</span></span>
-            <img src="ballcourt.png" alt="Pelota de tenis">
+            <img src="images/ballcourt.png" alt="Pelota de tenis">
             <p class="carousel-description">Conoce nuestras raquetas y aprende a jugar Tennis como un profesional.</p>
             <div class="carousel-controls">
                 <div class="dots-container">
@@ -62,86 +62,41 @@
                     <span class="dot"></span>
                 </div>
                 <div class="flechas-container">
-                    <img src="prevbtn.png" class="prev" id="prevButton">
-                    <img src="btnprev.png" class="next" id="nextButton">
+                    <img src="images/buttons/prevbtn.png" class="prev" id="prevButton">
+                    <img src="images/buttons/nextbtn.png" class="next" id="nextButton">
                 </div>
             </div>
         </div>
-        <div class="raquetas-carousel">
-            <div class="raqueta-item">
-                <span class="raqueta-num">1</span>
-                <img src="raqueta.png" alt="Raqueta 1">
-            </div>
-            <div class="raqueta-item">
-                <span class="raqueta-num">2</span>
-                <img src="raqueta.png" alt="Raqueta 2">
-            </div>
-            <div class="raqueta-item">
-                <span class="raqueta-num">3</span>
-                <img src="raqueta.png" alt="Raqueta 3">
-            </div>
-            <div class="raqueta-item">
-                <span class="raqueta-num">4</span>
-                <img src="raqueta.png" alt="Raqueta 4">
-            </div>
-            <div class="raqueta-item">
-                <span class="raqueta-num">5</span>
-                <img src="raqueta.png" alt="Raqueta 5">
+        <div class="raquetas-carousel-wrapper">
+            <div class="raquetas-carousel">
+                <div class="raqueta-item"><span class="raqueta-num">1</span><img src="images/raqueta.png" alt="Raqueta 1"></div>
+                <div class="raqueta-item"><span class="raqueta-num">2</span><img src="images/raqueta.png" alt="Raqueta 2"></div>
+                <div class="raqueta-item"><span class="raqueta-num">3</span><img src="images/raqueta.png" alt="Raqueta 3"></div>
+                <div class="raqueta-item"><span class="raqueta-num">4</span><img src="images/raqueta.png" alt="Raqueta 4"></div>
+                <div class="raqueta-item"><span class="raqueta-num">5</span><img src="images/raqueta.png" alt="Raqueta 5"></div>
             </div>
         </div>
     </div>
 </section>
 
-<script>
-const prevBtn = document.querySelector('#prevButton');
-const nextBtn = document.querySelector('#nextButton');
-const raquetasCarousel = document.querySelector('.raquetas-carousel');
-const raquetasItems = document.querySelectorAll('.raqueta-item');
-let currentIndex = 0;
-
-function showRaquetas(index) {
-    const itemWidth = raquetasItems[0].offsetWidth + parseInt(getComputedStyle(raquetasCarousel).gap); // Incluye el gap dinámicamente
-    const containerWidth = document.querySelector('.raquetas-container').offsetWidth - 500; // Resta el ancho de .raquetas-img
-    const itemsVisible = Math.floor(containerWidth / itemWidth);
-    const maxIndex = raquetasItems.length - itemsVisible; // Ajusta para que la última tarjeta sea visible
-
-    currentIndex = Math.min(Math.max(index, 0), maxIndex); // Asegura que no se pase
-
-    const translateValue = -itemWidth * currentIndex;
-    raquetasCarousel.style.transform = `translateX(${translateValue}px)`;
-}
-
-nextBtn.addEventListener('click', () => {
-    showRaquetas(currentIndex + 1);
-});
-
-prevBtn.addEventListener('click', () => {
-    showRaquetas(currentIndex - 1);
-});
-
-window.addEventListener('resize', () => {
-    showRaquetas(currentIndex); // Ajusta la posición cuando cambia el tamaño de la ventana
-});
-</script>
-
 <section class="imagen-section">
-    <img src="actionball.png" alt="Jugador de tenis en acción">
+    <img src="images/actionball.png" alt="Jugador de tenis en acción">
 </section>
 
 <footer class="footer-section">
     <nav class="footer-menu">
         <a href="#" class="active">Inicio</a>
-        <a href="#">Acerca de nosotros</a>
+        <a href="#">Nosotros</a>
         <a href="#">Historia</a>
         <a href="#">Contacto</a>
     </nav>
     <div class="social-icons">
-        <img src="lnkdn.svg" alt="LinkedIn">
-        <img src="vnm.svg" alt="Venmo">
-        <img src="insta.svg" alt="Instagram">
-        <img src="twt.svg" alt="Twitter">
-        <img src="fb.svg" alt="Facebook">
+        <img src="images/socialicons/lnkdn.svg" alt="LinkedIn">
+        <img src="images/socialicons/vnm.svg" alt="Venmo">
+        <img src="images/socialicons/insta.svg" alt="Instagram">
+        <img src="images/socialicons/twt.svg" alt="Twitter">
+        <img src="images/socialicons/fb.svg" alt="Facebook">
     </div>
 </footer>
-
+<script src="HPScript.js"></script>
 </html>

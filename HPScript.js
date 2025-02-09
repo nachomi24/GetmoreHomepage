@@ -1,36 +1,32 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // Funcionalidad del Carrusel
-    let currentIndex = 0;
-    const slides = document.querySelectorAll(".carousel-slide");
-    const totalSlides = slides.length;
-    const carousel = document.querySelector(".carousel");
+const prevBtn = document.querySelector('#prevButton');
+const nextBtn = document.querySelector('#nextButton');
+const raquetasCarousel = document.querySelector('.raquetas-carousel');
+const raquetasItems = document.querySelectorAll('.raqueta-item');
+let currentIndex = 0;
 
-    function moveCarousel() {
-        currentIndex = (currentIndex + 1) % totalSlides;
-        carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-    }
+function showRaquetas(index) {
+    const itemWidth = raquetasItems[0].offsetWidth + parseInt(getComputedStyle(raquetasCarousel).gap); // Incluye el gap dinámicamente
+    const containerWidth = document.querySelector('.raquetas-container').offsetWidth - 500; // Resta el ancho de .raquetas-img
+    const itemsVisible = Math.floor(containerWidth / itemWidth);
+    const maxIndex = raquetasItems.length - itemsVisible; // Ajusta para que la última tarjeta sea visible
 
-    setInterval(moveCarousel, 3000);
+    currentIndex = Math.min(Math.max(index, 0), maxIndex); // Asegura que no se pase
 
-    // Slider de productos
-    const prevBtn = document.querySelector(".prev");
-    const nextBtn = document.querySelector(".next");
-    const productContainer = document.querySelector(".productos-container");
+    const translateValue = -itemWidth * currentIndex;
+    raquetasCarousel.style.transform = `translateX(${translateValue}px)`;
+}
 
-    let productIndex = 0;
-    const productWidth = 300; // Ancho de cada producto
-
-    prevBtn.addEventListener("click", () => {
-        if (productIndex > 0) {
-            productIndex--;
-        }
-        productContainer.style.transform = `translateX(-${productIndex * productWidth}px)`;
-    });
-
-    nextBtn.addEventListener("click", () => {
-        if (productIndex < slides.length - 1) {
-            productIndex++;
-        }
-        productContainer.style.transform = `translateX(-${productIndex * productWidth}px)`;
-    });
+nextBtn.addEventListener('click', () => {
+    showRaquetas(currentIndex + 1);
 });
+
+prevBtn.addEventListener('click', () => {
+    showRaquetas(currentIndex - 1);
+});
+
+window.addEventListener('resize', () => {
+    showRaquetas(currentIndex); // Ajusta la posición cuando cambia el tamaño de la ventana
+});
+
+// Inicializa el carrusel en la tarjeta 1
+showRaquetas(0);
