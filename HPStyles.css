@@ -1,107 +1,83 @@
-/* Reset y estilos generales */
+
 body, ul {
     margin: 0;
     padding: 0;
     list-style: none;
     font-family: Helvetica, sans-serif;
-}
-
-body {
+  }
+  body {
     background-color: #f8f8f8;
-}
-
-/*Estilos del Header */
-header {
+  }
+  
+  /* HEADER & NAVIGATION */
+  header {
     position: relative;
     width: 100%;
-    height: 100vh; /* Altura completa en la versión de escritorio */
+    height: 100vh;
     background: url('images/homepageBG.png') no-repeat center;
     background-size: cover;
     display: flex;
     flex-direction: column;
-}
-
-.logo-container {
+  }
+  .nav-container, nav {
+    display: flex;
+    align-items: center;
+    padding: 20px 40px;
+  }
+  .logo-container {
     display: flex;
     align-items: center;
     padding-right: 2%;
-}
-
-/* Logo en la esquina superior izquierda */
-.logo {
+  }
+  .logo {
     width: 50px;
     height: auto;
-}
-
-/* Menú */
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-}
-
-.nav-container {
-    display: flex;
-    align-items: center;
-    padding: 20px 40px;
-}
-
-/* Menú Ajustado */
-.menu {
-    display: flex;
-    gap: 30%;
-    padding-left: 15%;
-}
-
-.linea-divisora {
+  }
+  .linea-divisora {
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 120px; /* Afecta el tamaño del logo */
+    left: 120px;
     width: 1px;
     background-color: white;
-}
-
-.menu a, .idiomas a {
+  }
+  .menu {
+    display: flex;
+    gap: 30%;
+    padding-left: 15%;
+  }
+  .menu a, .idiomas a {
     text-decoration: none;
     color: white;
     font-size: 18px;
     font-weight: normal;
-}
-
-/* Menú de idiomas en la esquina superior derecha */
-.idiomas {
+  }
+  .idiomas {
     display: flex;
     gap: 20px;
     margin-left: auto;
-}
-
-.titulo-container {
+  }
+  .titulo-container {
     position: absolute;
     top: 50%;
     left: 15%;
     transform: translateY(-50%);
-}
-
-.Las-mejores-raquetas {
+  }
+  .Las-mejores-raquetas {
     font-size: 3vw;
     color: white;
     font-weight: normal;
     max-width: 80%;
-}
-
-.text-style-1 {
+  }
+  .text-style-1 {
     font-weight: bold;
     color: #cbe24a;
-}
-
-.text-style-2 {
+  }
+  .text-style-2 {
     font-weight: bold;
     color: white;
-}
-
-.boton {
+  }
+  .boton {
     display: inline-block;
     margin-top: 5%;
     padding: 15px 30px;
@@ -111,92 +87,33 @@ nav {
     text-decoration: none;
     font-size: 1.5vw;
     font-weight: normal;
-}
-
-/* Responsividad */
-@media (max-width: 1024px) {
-    .titulo-container {
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-    }
-}
-
-@media (max-width: 768px) {
-    .logo-container, .linea-divisora {
-        display: none;
-    }
-
-    .nav-container {
-        justify-content: flex-end;
-        padding: 10px 20px;
-    }
-
-    .menu {
-        gap: 10px;
-    }
-
-    .menu a, .idiomas a {
-        font-size: 14px;
-    }
-
-    .titulo-container {
-        position: static;
-        transform: none;
-        text-align: center;
-        margin-top: 20px;
-    }
-
-    .Las-mejores-raquetas {
-        font-size: 6vw;
-    }
-
-    .boton {
-        font-size: 4vw;
-        margin-top: 10px;
-    }
-
-    .raquetas-carousel {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        margin-left: 0;
-    }
-
-    .raqueta-item {
-        width: 80%;
-        margin-bottom: 20px;
-    }
-
-    header {
-        height: 60vh; /* Ajusta la altura en la versión móvil */
-    }
-}
-
-.tennis-section {
+  }
+  
+  /* TENNIS SECTION */
+  .tennis-section {
     background-color: #f0f2f5;
     padding: 5%;
     text-align: left;
-}
-.tennis-container {
+  }
+  .tennis-container {
     max-width: 80%;
     margin: auto;
     position: relative;
-}
-.tennis-title {
+  }
+  .tennis-title {
     color: #cbe24a;
     font-weight: bold;
-    font-size: 2.5vw; /* Ajuste de tamaño para escritorio */
-}
-.tennis-container h2 {
-    font-size: 2vw; /* Ajuste de tamaño para escritorio */
+    font-size: 2.5vw;
+  }
+  .tennis-container h2 {
+    font-size: 2vw;
     margin-top: 1%;
-}
-.tennis-container p {
-    font-size: 1.2vw; /* Ajuste de tamaño para escritorio */
+  }
+  .tennis-container p {
+    font-size: 1.2vw;
     margin-bottom: 2%;
-}
-.historia-boton {
+  }
+  .historia-boton {
     display: inline-block;
     padding: 1% 2%;
     border: 1px solid #000;
@@ -204,59 +121,42 @@ nav {
     text-decoration: none;
     color: #000;
     font-size: 1.6rem;
-    margin-top: 20px; /* Ajuste para que esté debajo del texto */
-}
-
-@media (max-width: 768px) {
-    .tennis-title {
-        font-size: 5vw; /* Ajuste de tamaño para móvil */
-    }
-    .tennis-container h2 {
-        font-size: 4vw; /* Ajuste de tamaño para móvil */
-    }
-    .tennis-container p {
-        font-size: 3vw; /* Ajuste de tamaño para móvil */
-    }
-    .historia-boton {
-        font-size: 4vw; /* Ajuste de tamaño para móvil */
-        margin-top: 10px; /* Ajuste para que esté debajo del texto */
-        position: static; /* Asegura que esté debajo del texto */
-        transform: none; /* Elimina la transformación */
-    }
-}
-.raquetas-section {
+    margin-top: 20px;
+  }
+  
+  /* RAQUETAS SECTION */
+  .raquetas-section {
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    max-width: 1400px; /* Aumenta el ancho máximo */
+    max-width: 1400px;
     width: 100%;
-}
-.raquetas-container {
+  }
+  .raquetas-container {
     display: flex;
     align-items: center;
     width: 100%;
     position: relative;
-    overflow: hidden; /* Asegura que el contenido no se desborde */
-}
-.raquetas-img {
+    overflow: hidden;
+  }
+  .raquetas-img {
     flex-shrink: 0;
     position: relative;
-    display: flex
-;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     overflow: hidden;
     width: 40%;
     height: 50%;
     z-index: 2;
-}
-.raquetas-img img {
+  }
+  .raquetas-img img {
     width: 100%;
     height: 100%;
     object-fit: fill;
-}
-.carousel-text {
+  }
+  .carousel-text {
     position: absolute;
     top: 20%;
     left: 32%;
@@ -265,8 +165,8 @@ nav {
     font-weight: normal;
     z-index: 3;
     width: 80%;
-}
-.carousel-description {
+  }
+  .carousel-description {
     position: absolute;
     top: 40%;
     left: 32%;
@@ -276,8 +176,8 @@ nav {
     text-align: left;
     width: 60%;
     line-height: 2;
-}
-.carousel-controls {
+  }
+  .carousel-controls {
     position: absolute;
     bottom: 6%;
     left: 50%;
@@ -286,51 +186,47 @@ nav {
     flex-direction: column;
     align-items: center;
     z-index: 3;
-}
-
-.dots-container {
+  }
+  .dots-container {
     display: flex;
     justify-content: center;
     margin-bottom: 2%;
-}
-
-.dot {
+  }
+  .dot {
     width: 10px;
     height: 10px;
     background-color: white;
     border-radius: 50%;
     margin: 0 5px;
-}
-.dot.active {
+  }
+  .dot.active {
     background-color: #cbe24a;
-}
-.flechas-container {
+  }
+  .flechas-container {
     display: flex;
     justify-content: center;
     gap: 20px;
     margin-top: 10px;
-}
-.prev, .next {
+  }
+  .prev, .next {
     width: 54px;
     height: 54px;
     cursor: pointer;
     object-fit: contain;
-}
-
-/* Ajustes en las tarjetas de raquetas */
-.raquetas-carousel {
+  }
+  .raquetas-carousel {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     gap: 40px;
-    overflow: hidden;  
-    width: calc(100% - 540px); /* Ajusta este valor según sea necesario */
+    overflow: hidden;
+    width: calc(100% - 540px);
     justify-content: flex-start;
     margin-left: 40px;
     transition: transform 0.3s ease-in-out;
     position: relative;
-}
-.raqueta-item {
+  }
+  .raqueta-item {
     position: relative;
     text-align: center;
     width: 288px;
@@ -342,13 +238,13 @@ nav {
     justify-content: center;
     flex-direction: column;
     padding: 10px;
-}
-.raqueta-item img {
+  }
+  .raqueta-item img {
     width: 218px;
-    height: 200px; /* Ajuste para que la imagen no sea tan grande */
-    object-fit: contain; /* Ajuste para que la imagen se ajuste al contenedor */
-}
-.raqueta-num {
+    height: 200px;
+    object-fit: contain;
+  }
+  .raqueta-num {
     position: absolute;
     top: 10px;
     left: 10px;
@@ -361,127 +257,76 @@ nav {
     justify-content: center;
     border-radius: 50%;
     font-size: 14px;
-}
-
-/* Ajustes para versión móvil */
-@media (max-width: 768px) {
-    .raquetas-section {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .raquetas-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .raquetas-img {
-        width: 100%;
-        height: 50%; /* Mantiene la misma altura que en la versión de computadora */
-        text-align: center;
-        order: 1;
-    }
-
-    .raquetas-carousel {
-        width: 100%;
-        order: 2;
-        justify-content: center;
-        padding-left: 0;
-    }
-
-    .carousel-text {
-        font-size: 6vw; 
-        text-align: center;
-        width: 90%; 
-        top: 10%;
-        left: 5%;
-    }
-
-    .carousel-description {
-        font-size: 4vw; 
-        text-align: center;
-        width: 90%; 
-        top: 30%; 
-        left: 5%;
-    }
-
-    .dots-container {
-        order: 1;
-    }
-
-    .flechas-container {
-        order: 2;
-        gap: 5px;
-    }
-
-    .prev, .next {
-        width: 20px;
-        height: 20px;
-    }
-
-    .raqueta-item {
-        width: 120px;
-        height: 150px;
-        margin-bottom: 10px;
-    }
-
-    .raqueta-item img {
-        width: 100%; 
-        height: auto;
-    }
-}
-
-.imagen-section img {
+  }
+  
+  /* IMAGEN SECTION */
+  .imagen-section img {
     width: 100%;
     height: auto;
     display: block;
-}
-
-.footer-section {
+  }
+  
+  /* FOOTER */
+  .footer-section {
     background-color: #c1d72e;
     padding: 2%;
     text-align: center;
-}
-
-.footer-menu {
+  }
+  .footer-menu {
     display: flex;
-    justify-content: center; /* Centra el menú */
+    justify-content: center;
     gap: 2%;
     font-size: 1rem;
-}
-
-.footer-menu a {
+  }
+  .footer-menu a {
     text-decoration: none;
     color: black;
     font-weight: normal;
-}
-
-.footer-menu a.active {
+  }
+  .footer-menu a.active {
     font-weight: bold;
-}
-
-.social-icons {
+  }
+  .social-icons {
     margin-top: 1%;
     display: flex;
-    justify-content: center; /* Centra los íconos sociales */
+    justify-content: center;
     gap: 1%;
-}
-
-.social-icons img {
+  }
+  .social-icons img {
     width: 2.4%;
     height: 2.4%;
-}
-
-/* Ajustes para versión móvil */
-@media (max-width: 768px) {
-    .footer-menu {
-        flex-direction: column; /* Cambia la dirección a columna */
-        align-items: center; /* Centra los elementos */
-        gap: 10px; /* Aumenta el espacio entre los elementos */
+  }
+  
+  /* MEDIA QUERIES */
+  @media (max-width: 1024px) {
+    .titulo-container {
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
     }
-
-    .social-icons img {
-        width: 5%; /* Ajusta el tamaño de los íconos sociales */
-        height: 5%;
-    }
-}
+  }
+  @media (max-width: 768px) {
+    .logo-container, .linea-divisora { display: none; }
+    .nav-container { justify-content: flex-end; padding: 10px 20px; }
+    .menu { gap: 10px; }
+    .menu a, .idiomas a { font-size: 14px; }
+    .titulo-container { position: static; transform: none; text-align: center; margin-top: 20px; }
+    .Las-mejores-raquetas { font-size: 6vw; }
+    .boton { font-size: 4vw; margin-top: 10px; }
+    header { height: 60vh; }
+    .tennis-title { font-size: 5vw; }
+    .tennis-container h2 { font-size: 4vw; }
+    .tennis-container p { font-size: 3vw; }
+    .historia-boton { font-size: 4vw; margin-top: 10px; position: static; transform: none; }
+    /* Raquetas section: reorder and reset carousel translation */
+    .raquetas-section { flex-direction: column; align-items: center; }
+    .raquetas-container { flex-direction: column; align-items: center; }
+    .raquetas-img { width: 100%; height: 50%; text-align: center; order: 1; }
+    .raquetas-carousel-wrapper { order: 2; width: 100%; }
+    .raquetas-carousel { transform: translateX(0); margin-left: 0; width: 100%; }
+    .carousel-text { font-size: 8vw; top: 10%; left: 5%; }
+    .carousel-description { top: 20%; left: 10%; font-size: 4vw; width: 60%; line-height: 2; }
+    .social-icons img { width: 5%; height: 5%; }
+    .footer-menu { flex-direction: column; align-items: center; gap: 10px; }
+  }
+  
